@@ -1,0 +1,11 @@
+#include <iostream>
+#include <memory>
+
+using namesapce std;
+
+template <typename T>
+
+struct BinaryTree {
+  T data;
+  unique_ptr<BinaryTree<T>> left, right;
+}
