@@ -48,5 +48,24 @@
 ;; Command prompt when using M-x
 (icomplete-mode 1)
 
+;; Haml mode
+(require 'haml-mode)
+(add-hook 'haml-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)
+            (define-key haml-mode-map "\C-m" 'newline-and-indent)))
+
+;; Enable ECB
+(require 'ecb)
+(global-set-key (kbd "C-x C-e")  'ecb-activate)
+
+;; Open shell
+(global-set-key (kbd "C-1") 'shell)
+
+;; Enable flyspell check within auctex
+(add-hook 'LaTeX-mode-hook '(flyspell-mode t))
 
 ;;; init.el ends here
+(put 'upcase-region 'disabled nil)
+
+
