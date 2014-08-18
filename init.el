@@ -63,7 +63,18 @@
 (global-set-key (kbd "C-1") 'shell)
 
 ;; Enable flyspell check within auctex
-(add-hook 'LaTeX-mode-hook '(flyspell-mode t))
+(setq ispell-program-name "/usr/local/bin/aspell")
+
+;; Go-to-line 
+(global-set-key (kbd "M-g") 'goto-line)
+
+(autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
+(setq auto-mode-alist
+    (append '(("\\.cs$" . csharp-mode)) auto-mode-alist))
+
+;; Julia mode
+(load "~/.emacs.d/ESS/lisp/ess-site")
+(setq inferior-julia-program-name "/Applications/Julia-0.2.1.app/Contents/Resources/julia/bin/julia")
 
 ;;; init.el ends here
 (put 'upcase-region 'disabled nil)
