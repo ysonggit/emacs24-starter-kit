@@ -4,7 +4,9 @@
 ;;
 ;; This is the first thing to get loaded.
 ;;
-
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
 ;; load Org-mode from source when the ORG_HOME environment variable is set
 (when (getenv "ORG_HOME")
   (let ((org-lisp-dir (expand-file-name "lisp" (getenv "ORG_HOME"))))
@@ -34,6 +36,8 @@
 (package-initialize)
 
 ;; Use monokai-theme
+;; Refer https://github.com/oneKelvinSmith/monokai-emacs
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") 
 (load-theme 'monokai t)
 
 ;; Display line numbers
@@ -56,8 +60,8 @@
             (define-key haml-mode-map "\C-m" 'newline-and-indent)))
 
 ;; Enable ECB
-(require 'ecb)
-(global-set-key (kbd "C-x C-e")  'ecb-activate)
+;; (require 'ecb)
+;; (global-set-key (kbd "C-x C-e")  'ecb-activate)
 
 ;; Open shell
 (global-set-key (kbd "C-1") 'shell)
